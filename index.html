@@ -90,7 +90,10 @@ ul.tight li{margin:9px 0}
 /* 表格 */
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;
   background:var(--card);margin:12px 0}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:.9em;line-height:1.65}
+table{border-collapse:collapse;width:100%;min-width:0;font-size:.9em;line-height:1.65}
+table:has(thead th:nth-child(3)){min-width:560px}
+th:first-child,td:first-child{min-width:96px}
+.content th:first-child,.content td:first-child{white-space:nowrap}
 th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 th{background:var(--accent2);color:#0b514b;font-weight:800;white-space:nowrap}
 tr:last-child td{border-bottom:none}
@@ -144,7 +147,9 @@ details.model[open]>summary{background:var(--accent2)}
   .callout,.step,.chips span,.meal li,.disclaimer,.tw{break-inside:avoid;page-break-inside:avoid}
   h2.sec{break-after:avoid;page-break-after:avoid;font-size:14pt;margin:18px 0 9px}
   h3{break-after:avoid;page-break-after:avoid}
-  table{font-size:9pt;min-width:0}
+  table,table:has(thead th:nth-child(3)){font-size:9pt;min-width:0}
+  .tw table.wide4{font-size:8pt}
+  .tw table.wide4 th,.tw table.wide4 td{padding:4px 5px}
   th,td{padding:6px 7px}
   th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -237,15 +242,15 @@ details.model[open]>summary{background:var(--accent2)}
   <div class="step"><span class="no">1</span><div><b>现在就去复查（最要紧）。</b>空腹血脂四项、肾功能（肌酐＋<b>胱抑素 C</b>＋eGFR）、<b>晨尿 UACR</b>、白蛋白／总蛋白、CRP。单次肌酐偏高不能说明什么，需要复查确认。</div></div>
   <div class="step"><span class="no">2</span><div><b>先把含糖饮料、果汁、甜点停掉</b>，换成白水或淡茶。这是各份建议里一致认为最值得先做的一步。</div></div>
   <div class="step"><span class="no">3</span><div><b>主食粗细搭配。</b>白米白面减一部分，换成燕麦、糙米、杂豆、薯类；<b>不要断碳水、不要生酮</b>。</div></div>
-  <div class="step"><span class="no">4</span><div><b>蛋白质吃够，但别过量。</b>每天约 <b>55～70 g</b>，用鱼、禽、蛋、奶、豆制品分到三餐；<b>不自行吃蛋白粉</b>。</div></div>
+  <div class="step"><span class="no">4</span><div><b>蛋白质吃够，但别过量。</b>每天约 <b>55～65 g（基准值）</b>，用鱼、禽、蛋、奶、豆制品分到三餐；<b>不自行吃蛋白粉</b>。</div></div>
   <div class="step"><span class="no">5</span><div><b>动起来，循序渐进。</b>从三餐后各走 10～15 分钟开始，逐步到每周 5～7 天、每次约 40 分钟快走，另加每周 2～3 次力量训练。</div></div>
-  <div class="step"><span class="no">6</span><div><b>别自行买「降脂／护肾／补白蛋白」的保健品</b>（鱼油、卵磷脂、蛋白粉、偏方等）。目前各份建议都认为首选生活方式干预。</div></div>
+  <div class="step"><span class="no">6</span><div><b>别自行买「降脂／护肾／补白蛋白」的保健品</b>（鱼油、卵磷脂、蛋白粉、偏方等）。基准与其余各份分析都认为首选生活方式干预。</div></div>
 </div>
 
 <!-- ---------- 2 ---------- -->
 <h2 id="s2" class="sec">二、我的报告里，真正要留意的是什么</h2>
 
-<p>各份建议一致认为：需要处理的是下面 <b>3 项</b>，另有 1 项属于「化验单与指南标准不一致」，不需要单独治疗。</p>
+<p>以 OpenEvidence 修订版为基准，各份分析一致认为：需要处理的是下面 <b>3 项</b>，另有 1 项属于「化验单与指南标准不一致」，不需要单独治疗。</p>
 
 <div class="tw">
 <table>
@@ -258,7 +263,7 @@ details.model[open]>summary{background:var(--accent2)}
   </tbody>
 </table>
 </div>
-<div class="scroll-hint">← 表格较宽，可左右滑动 →</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
 
 <div class="callout ok">
   <div class="callout-h">✅ 报告里「没有」的问题，请不要套用</div>
@@ -282,7 +287,7 @@ details.model[open]>summary{background:var(--accent2)}
   </tbody>
 </table>
 </div>
-<div class="scroll-hint">← 表格较宽，可左右滑动 →</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
 
 <h3>3.2 一天可以参考这样吃</h3>
 <p class="muted">示例框架，克数为生重／可食部估算，可按口味替换同类食物。不必天天照做，保持「结构＋份量」更重要。</p>
@@ -305,7 +310,7 @@ details.model[open]>summary{background:var(--accent2)}
     <tr><td>食盐</td><td><b>≤5 g／天</b>（酱油、豆瓣酱、腐乳要算进去）</td></tr>
     <tr><td>蔬菜 / 水果</td><td>蔬菜约 <b>500 g／天</b>（深色一半以上）；水果 <b>200～350 g／天</b>，吃整果</td></tr>
     <tr><td>膳食纤维</td><td>25～40 g／天</td></tr>
-    <tr><td>蛋白质</td><td><b>约 55～70 g／天</b>，优质蛋白占一半以上，分到三餐；不用蛋白粉</td></tr>
+    <tr><td>蛋白质</td><td><b>55～65 g／天（基准值）</b>，优质蛋白占一半以上，分到三餐；不用蛋白粉</td></tr>
     <tr><td>奶类</td><td>约 300 mL／天，低脂或脱脂、无糖</td></tr>
     <tr><td>主食</td><td>粗细搭配，全谷物／杂豆 <b>≥1/3</b>；不建议极低碳水或生酮</td></tr>
     <tr><td>饮水</td><td><b>1500～1700 mL／天</b>，分次喝，尿色淡黄即可；没有结石史，不必强灌 2～3 L</td></tr>
@@ -315,12 +320,12 @@ details.model[open]>summary{background:var(--accent2)}
 </div>
 
 <div class="callout soft">
-  <b>关于「每天吃多少千卡」：</b>各份建议说法不完全一样（有的给出约 1600～1700 kcal，有的认为能量需要没有实测、不建议直接定数字）。共同点是：<b>BMI 23.29 属正常范围，目标是维持体重、优化饮食结构，不需要节食减重</b>；是否调整，等复查结果和腰围测出来再说。
+  <b>关于「每天吃多少千卡」：</b>本页采用基准值 <b>约 1600～1700 kcal</b>（按基础代谢与久坐消耗测算）。其余分析从 1450～1550 到 1700～1800 kcal 不等，也有分析认为能量需要未实测、不应直接设数字，逐条对比见第八节。<b>共同点是 BMI 23.29 属正常，目标是维持体重、优化结构，不节食减重</b>；是否调整等复查结果与腰围出来再说。
 </div>
 
 <!-- ---------- 4 ---------- -->
 <h2 id="s4" class="sec">四、怎么动</h2>
-<p>目标：逐步达到<b>每周约 150～300 分钟中等强度有氧</b>，加<b>每周 2～3 次力量训练</b>。中等强度＝呼吸加快、微微出汗，但还能说话。</p>
+<p>基准目标：<b>每天运动消耗约 200 kcal</b>（≈6 km/h 快走 40 分钟），逐步达到<b>每周 200～280 分钟中等强度有氧</b>，加<b>每周 2～3 次力量训练</b>。其余分析多写「每周 150～300 分钟」，方向一致、数值略不同（见第八节）。中等强度＝呼吸加快、微微出汗，但还能说话。</p>
 
 <div class="tw">
 <table>
@@ -332,7 +337,7 @@ details.model[open]>summary{background:var(--accent2)}
   </tbody>
 </table>
 </div>
-<div class="scroll-hint">← 表格较宽，可左右滑动 →</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
 
 <div class="callout warn">
   <div class="callout-h">运动安全</div>
@@ -361,6 +366,7 @@ details.model[open]>summary{background:var(--accent2)}
 
 <!-- ---------- 6 ---------- -->
 <h2 id="s6" class="sec">六、什么时候复查、什么时候就诊</h2>
+<p class="muted">以下按基准的复查清单整理；其他分析额外建议的项目见第八节。</p>
 <div class="tw">
 <table>
   <thead><tr><th>时间</th><th>查什么</th><th>为什么</th></tr></thead>
@@ -372,7 +378,7 @@ details.model[open]>summary{background:var(--accent2)}
   </tbody>
 </table>
 </div>
-<div class="scroll-hint">← 表格较宽，可左右滑动 →</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
 
 <h3>建议挂哪些科（都不是急诊）</h3>
 <ul class="tight">
@@ -390,7 +396,7 @@ details.model[open]>summary{background:var(--accent2)}
 <!-- ---------- 7 ---------- -->
 <h2 id="s7" class="sec">七、用药和保健品，先弄明白这几点</h2>
 <ul class="tight">
-  <li><b>目前首选生活方式干预</b>，各份建议都认为没有明确用药指征。甘油三酯 2.37 mmol/L 属于轻度升高，是否需要药物，要由医生结合复查结果和总体心血管风险判断。</li>
+  <li><b>目前首选生活方式干预</b>，基准与其余各份分析都认为没有明确用药指征。甘油三酯 2.37 mmol/L 属于轻度升高，是否需要药物，要由医生结合复查结果和总体心血管风险判断。</li>
   <li><b>不要自行服用</b>蛋白粉、鱼油、卵磷脂、「护肾」中草药或偏方。非处方鱼油在指南中不被推荐用于降甘油三酯；白蛋白偏低也没有「输白蛋白」或「补白蛋白」的指征，应针对原因处理。</li>
   <li><b>报告原文 vs 循证建议有出入：</b>体检报告的「次要健康问题」里写了「可适当补充卵磷脂、深海鱼油等」。而本次汇总的各份循证建议<b>均不推荐自行补充</b>（缺乏明确获益，鱼油还可能影响 LDL-C、增加房颤风险）。<b>遇到这种不一致，请以门诊医生的意见为准，不要自行购买。</b></li>
   <li><b>含钾低钠盐先别用：</b>肾功能还在复核中，复查正常前暂不使用含钾低钠盐。</li>
@@ -398,45 +404,101 @@ details.model[open]>summary{background:var(--accent2)}
 </ul>
 
 <!-- ---------- 8 ---------- -->
-<h2 id="s8" class="sec">八、多份建议：哪里一致，哪里说法不同</h2>
-<p>这些建议来自不同 AI 模型，<b>大方向高度一致</b>，但在若干数字和判断上有分歧。下面把差异如实列出，方便你和医生核对；<b>拿不准的，按复查结果和医生意见</b>。</p>
+<h2 id="s8" class="sec">八、以 OpenEvidence 为基准，逐条对比分歧</h2>
 
-<h3>✅ 各份建议一致的部分</h3>
-<div class="chips">
-  <span>需要处理的是 TG↑、肌酐↑、白蛋白↓</span>
-  <span>HDL-C 按国内指南不算「降低」</span>
-  <span>报告里没有高血压／高尿酸／脂肪肝／肾结石／肺结节／超重</span>
-  <span>先停含糖饮料和果汁</span>
-  <span>粗细搭配、控油、蛋白质吃够</span>
-  <span>有氧为主＋力量训练，循序渐进</span>
-  <span>现在就该复查（原定期限已过）</span>
-  <span>不自行用鱼油／卵磷脂／蛋白粉</span>
-  <span>不用极低碳水或生酮</span>
+<div class="callout soft">
+  <b>基准怎么定：</b>本页以 <b>OpenEvidence 第二批（修订版）</b>为基准线。理由是它逐条对照国家食养指南、每条标注证据等级与利弊，并且明确写出了对早期方案的修订。其余 8 份分析逐条与它比对；<b>本页正文的所有数字都采用基准值</b>，偏离之处在下面如实列出。
 </div>
 
-<h3>⚖️ 说法不完全一样的地方</h3>
+<h3>📌 基准的核心判断</h3>
 <div class="tw">
 <table>
-  <thead><tr><th>话题</th><th>不同说法</th><th>建议怎么处理</th></tr></thead>
+  <thead><tr><th>项目</th><th>基准（OpenEvidence 修订版）</th></tr></thead>
   <tbody>
-    <tr><td><b>每天总热量</b></td><td>约 1600～1700 kcal ／ 早期版本 1450～1550 kcal ／ 也有模型认为能量需要未实测、不该直接定数字</td><td>BMI 正常，以<b>维持体重、优化结构</b>为主，不节食减重</td></tr>
-    <tr><td><b>蛋白质目标</b></td><td>55～65 g ／ 60～70 g ／ 70～75 g ／ 55 g（膳食营养素参考摄入量）</td><td>差异来自是否参照慢性肾脏病指南。<b>取 55～70 g 这个区间</b>，等肌酐复查结果再调整</td></tr>
-    <tr><td><b>要不要减重</b></td><td>早期版本写过「3 个月减约 3 kg」，后续版本已修订为「维持体重」；另有模型明确指出 BMI 23.29 不支持设减重目标</td><td><b>以修订后的意见为准：不设减重目标</b>，补测腰围后再评估</td></tr>
-    <tr><td><b>戒甜饮的效果</b></td><td>早期称「4～8 周 TG 降 15～25%」，后续指出缺乏 RCT 支持，实际约 5%（0.10 mmol/L 左右）</td><td>该做还是要做，但<b>别期待单靠这一项就达标</b>，需配合整体饮食和运动</td></tr>
-    <tr><td><b>HDL-C 标准</b></td><td>化验单下限 1.29；国内指南切点 &lt;1.0；欧美女性 &lt;1.3 算偏低</td><td>按国内指南不属于「降低」，随 TG 一起管理即可</td></tr>
-    <tr><td><b>奶类</b></td><td>国内高脂血症食养指南建议低脂／脱脂；美国膳食指南可用全脂无糖奶</td><td>考虑到甘油三酯偏高，<b>本页采用低脂／脱脂</b></td></tr>
-    <tr><td><b>低钠盐</b></td><td>部分模型专门提醒「肾功能复核前不用含钾低钠盐」，其他未提</td><td>按较谨慎的做法：<b>复查正常前暂不用</b></td></tr>
-    <tr><td><b>胸部 CT 复查</b></td><td>多数认为「证据不足，由呼吸科结合症状和原片决定」；也有列入年度复查的</td><td>听呼吸科的；有症状（咳嗽 &gt;3 周、痰中带血等）就就诊</td></tr>
-    <tr><td><b>绝经后骨骼评估</b></td><td>部分模型建议做骨质疏松风险／骨密度评估，其他未提</td><td>可在年度体检时顺带向医生咨询</td></tr>
-    <tr><td><b>卵磷脂、深海鱼油</b></td><td>体检报告原文写「可适当补充」；循证建议均<b>不推荐自行补充</b></td><td><b>以门诊医生意见为准，不自行购买</b></td></tr>
+    <tr><td><b>要处理什么</b></td><td>甘油三酯 2.37↑、肌酐 81.4↑、白蛋白 37.1↓ 共三项；<b>HDL-C 1.23 按国内指南（&lt;1.0 才算降低）不属于异常</b></td></tr>
+    <tr><td><b>报告核对</b></td><td>没有高血压、高尿酸、脂肪肝、肾结石、肺结节、同型半胱氨酸升高或超重，<b>不套用这些病种的限制性食谱</b></td></tr>
+    <tr><td><b>能量与体重</b></td><td>约 <b>1600～1700 kcal／天</b>（按 BMR≈1266 kcal 与久坐消耗估算）；BMI 正常，<b>维持体重、不减重、不节食</b></td></tr>
+    <tr><td><b>蛋白质</b></td><td><b>55～65 g／天</b>（约 0.94～1.1 g/kg），每餐约 20 g，优质蛋白 ≥50%；<b>不用蛋白粉</b>，等肌酐复查后再调整</td></tr>
+    <tr><td><b>运动</b></td><td>每天消耗约 <b>200 kcal</b>（≈6 km/h 快走 40 分钟），每周 5～7 次，加每周 2～3 次抗阻</td></tr>
+    <tr><td><b>复查与用药</b></td><td>原定期限已过，<b>现在复查</b>；首选生活方式干预，不自行用鱼油／卵磷脂／蛋白粉，不预设用药</td></tr>
   </tbody>
 </table>
 </div>
-<div class="scroll-hint">← 表格较宽，可左右滑动 →</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
+
+<h3>🔄 先说基准自己的变化</h3>
+<p>同一个 OpenEvidence 在两批材料里给出过两个版本，第二批是修订版。下面这几处改动，恰好也是后面多数分歧的焦点：</p>
+<div class="tw">
+<table>
+  <thead><tr><th>条目</th><th>第一版</th><th>修订版（本页基准）</th></tr></thead>
+  <tbody>
+    <tr><td><b>体重目标</b></td><td>3 个月减约 3 kg（5%），BMI 降到约 22</td><td><b>维持体重、不设减重目标</b>；只有腰围 ≥80 cm 才考虑每日温和减 200～300 kcal</td></tr>
+    <tr><td><b>疗效预期</b></td><td>综合干预可使 TG 降 20～50%，「有望降到 1.7 以下」</td><td>单靠戒糖约降 <b>5%</b>（0.10 mmol/L）；叠加后<b>可能</b>降到 2.3 以下，<b>不保证</b></td></tr>
+    <tr><td><b>白蛋白归因</b></td><td>最可能的原因是蛋白质摄入不足</td><td>白蛋白是负性急性期蛋白，<b>不宜单独作为营养指标</b>；复查同时查 CRP</td></tr>
+    <tr><td><b>总热量</b></td><td>约 1600～1800 kcal</td><td>按公式测算后收窄为 <b>1600～1700 kcal</b></td></tr>
+  </tbody>
+</table>
+</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
+<p class="muted">值得注意：第二批 ChatGPT 明确点名反驳了第一版的四个推断 ——「总体心血管低危」「尿比重提示脱水」「白蛋白低最可能由蛋白摄入不足导致」「给正常 BMI 患者设减重目标」。修订版的改动方向与这些反驳一致。</p>
+
+<h3>📊 逐条对比：一致在哪，偏离在哪</h3>
+<div class="tw">
+<table class="wide4">
+  <thead><tr><th>主题</th><th>基准</th><th>与基准一致的分析</th><th>偏离基准的说法</th></tr></thead>
+  <tbody>
+    <tr><td><b>报告里没有那些病</b></td><td>不套用高血压／高尿酸／脂肪肝／结石／结节／超重的限制</td><td><b>全部 9 份</b>都专门核对过（最强共识）</td><td>无</td></tr>
+    <tr><td><b>三项异常 + HDL-C 判定</b></td><td>TG↑、肌酐↑、白蛋白↓；HDL-C 按指南不算降低</td><td>全部一致</td><td>部分分析在标题里仍把 HDL-C 写作「降低」，但正文都承认指南切点差异</td></tr>
+    <tr><td><b>饮食方向</b></td><td>停含糖饮料／果汁、粗细搭配、控油、不生酮、不饮酒</td><td>全部一致</td><td>仅宽严不同：饮酒有「不饮」「尽量少饮」「复查前暂停」几种写法</td></tr>
+    <tr><td><b>保健品</b></td><td>不自行用鱼油／卵磷脂／蛋白粉</td><td>全部一致</td><td>无模型分歧；<b>但体检报告原文写「可适当补充卵磷脂、深海鱼油」，是报告与全部分析的冲突</b></td></tr>
+    <tr><td><b>复查时机</b></td><td>已过期，现在就查</td><td>全部一致</td><td>无</td></tr>
+    <tr><td><b>每天总热量</b></td><td>1600～1700 kcal</td><td>第一批 OpenEvidence（1600～1800）方向接近</td><td>第一批 Gemini <b>1450～1550</b>；第二批 Gemini 1500～1650（示例 1580）；两批 Claude <b>1700～1800</b>；第二批 ChatGPT 认为能量需要未实测，<b>不应直接设数字</b></td></tr>
+    <tr><td><b>蛋白质目标</b></td><td>55～65 g／天</td><td>第一批 OpenEvidence 同为 55～65 g</td><td>第一批 Claude 70 g（上限 75）、第一批 Gemini 约 56 g、第一批 ChatGPT <b>50～55 g</b>；第二批 Gemini <b>45～58 g</b>（按理想体重 0.8～1.0 g/kg）、第二批 Claude 60～70 g、第二批 ChatGPT 55 g（RNI）、蚂蚁阿福 0.8～1.0 g/kg。<b>差异来自是否按慢性肾病指南收紧</b></td></tr>
+    <tr><td><b>要不要减重</b></td><td>维持体重，不设减重目标</td><td>两批 Claude、两批 ChatGPT</td><td>第一批 OpenEvidence（减约 3 kg）与两批 Gemini（第二批明确减到 <b>53.5～56.5 kg</b>、减重 3～5%）仍主张减重；ChatGPT 明确指出 BMI 正常<b>不支持设减重目标</b></td></tr>
+    <tr><td><b>疗效预期</b></td><td>单靠戒糖约降 5%，叠加不保证达标</td><td>修订思路被 ChatGPT、Claude 采纳（「需合理预期」）</td><td>第一批 OpenEvidence「降 20～50%、有望到 1.7 以下」；第一批 Gemini「仅戒甜饮 4～8 周降 15～25%」；第二批 Gemini「4～12 周降 20～50%」——<b>明显偏乐观</b></td></tr>
+    <tr><td><b>白蛋白偏低的原因</b></td><td>不宜单独当营养指标，复查加 CRP</td><td>两批 ChatGPT、蚂蚁阿福、第二批 Claude（标为 3 级／证据有限）</td><td>第一批 OpenEvidence、第一批 Gemini、第一批 Claude 都写「最可能是蛋白摄入不足」；Gemini 进一步称「营养性低白蛋白血症」</td></tr>
+    <tr><td><b>总体心血管风险</b></td><td>未下总体结论；用药章节只说「LDL-C 已达标、风险低，大概率不需他汀」</td><td>方向相近</td><td>第一批 OpenEvidence／Gemini／Claude、第二批 Claude 均判「<b>低危</b>」；第二批 ChatGPT 明确反驳：吸烟史、家族史、既往病史缺失，<b>不能判定总体风险为低</b></td></tr>
+    <tr><td><b>运动剂量</b></td><td>每天约 200 kcal ≈ 快走 40 分钟；每周 200～280 分钟 + 抗阻 2～3 次</td><td>两批 Claude（每天 200 kcal、每周 5～7 次）基本一致</td><td>第一批 OpenEvidence／Claude 用「每周 150～300 分钟」；第二批 ChatGPT 只要求「每周至少 150 分钟、抗阻每周 2 天」；第二批 Gemini 用目标心率 105～130／分。<b>数值不同但方向一致</b></td></tr>
+    <tr><td><b>复查前停运动</b></td><td>24～48 小时</td><td>两批 Claude</td><td>第二批 Gemini 要求 <b>48～72 小时</b>；第一批 Claude 另加「前一晚不吃大量红肉／浓肉汤」</td></tr>
+    <tr><td><b>复查项目</b></td><td>血脂、肌酐＋胱抑素 C＋eGFR、晨尿 UACR、白蛋白／总蛋白＋CRP、TSH、腰围</td><td>Claude 两批还加 TSH、空腹血糖、ALT/AST、血常规</td><td>第一批 OpenEvidence 额外建议铁蛋白、年度 FRAX／DXA；第二批 ChatGPT 项目最精简，胱抑素 C 由医生视情况加、不强制</td></tr>
+    <tr><td><b>胸部 CT 复查</b></td><td>证据不足，是否复查由呼吸科结合症状与原片决定</td><td>两批 ChatGPT</td><td>第一批 Claude、第二批 Claude、蚂蚁阿福均列出「<b>6～12 个月复查 CT</b>」；第一批 Gemini 建议 1 个月内呼吸内科阅片；第一批 OpenEvidence 认为轻微改变无需处理</td></tr>
+    <tr><td><b>含钾低钠盐</b></td><td>肾功能复核正常前暂不用</td><td>两批 Claude、第二批 Gemini（基准更谨慎）</td><td>其余分析未专门提及（属「未提」而非反对）</td></tr>
+    <tr><td><b>绝经后骨密度</b></td><td>基准未列入</td><td>—</td><td>第一批 OpenEvidence 建议 FRAX／必要时 DXA；第一批 Claude 建议负重运动护骨；第二批 Claude 建议年度与医生讨论骨密度</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
+
+<h3>🧭 各分析相对基准的「性格」</h3>
+<div class="tw">
+<table>
+  <thead><tr><th>分析</th><th>相对基准的主要偏离</th></tr></thead>
+  <tbody>
+    <tr><td><b>第一批 OpenEvidence</b></td><td>基准的早期版：主张减重 3 kg、判「低危」、预期 TG 降到 1.7 以下、白蛋白归因于摄入不足</td></tr>
+    <tr><td><b>第一批 Gemini</b></td><td>热量最低（1450～1550 kcal）、蛋白约 56 g、疗效承诺最乐观（戒甜饮 4～8 周降 15～25%）、建议 1 个月内呼吸科阅片</td></tr>
+    <tr><td><b>第一批 Claude</b></td><td>热量 1700～1800 kcal、蛋白 70 g（示例 70～75 g）、维持体重；额外列出 6～12 个月复查 CT 与 TSH</td></tr>
+    <tr><td><b>第一批 ChatGPT</b></td><td>最保守：蛋白 50～55 g、不给明确总热量、不承诺补蛋白能升白蛋白、复查前才要求暂停饮酒</td></tr>
+    <tr><td><b>蚂蚁阿福</b></td><td>按慢性肾病分期思路给蛋白 0.8～1.0 g/kg、列 6～12 个月复查 CT，强调综合评估心血管风险而非单指标</td></tr>
+    <tr><td><b>第二批 Gemini</b></td><td>蛋白最紧（45～58 g，按理想体重）、热量 1500～1650 kcal、<b>明确要求减重到 53.5～56.5 kg</b>、复查前停运动 48～72 小时</td></tr>
+    <tr><td><b>第二批 Claude</b></td><td>热量偏高（1700～1800 kcal）、蛋白 60～70 g，其余与基准接近；自述「相对上一版把脂肪供能比下调、蛋白由 70 g 调到 60～70 g」</td></tr>
+    <tr><td><b>第二批 ChatGPT</b></td><td>逐条反驳第一批 OpenEvidence 的四个推断；拒绝给总热量、拒绝判「低危」、拒绝认定白蛋白成因，证据不足标注最多、复查项目最精简</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="scroll-hint">← 表格较宽时可左右滑动 →</div>
+
+<h3>✅ 真正会改变做法的分歧，只有 4 处</h3>
+<div class="steps">
+  <div class="step"><span class="no">1</span><div><b>要不要减重。</b>按基准：<b>不减</b>，补测腰围后再说。Gemini 与早期 OpenEvidence 的减重目标未被采用。</div></div>
+  <div class="step"><span class="no">2</span><div><b>蛋白质吃多少。</b>按基准：<b>55～65 g／天</b>。偏低（45～55 g）与偏高（70～75 g）两派都有，等肌酐复查结果再定。</div></div>
+  <div class="step"><span class="no">3</span><div><b>CT 多久复查。</b>按基准：<b>由呼吸科决定</b>，不必自行安排 6～12 个月；有症状（咳嗽 &gt;3 周、痰中带血等）就就诊。</div></div>
+  <div class="step"><span class="no">4</span><div><b>对疗效的期待。</b>按基准：<b>别指望单靠戒糖就达标</b>，需饮食＋运动一起做，且不承诺具体降幅。</div></div>
+</div>
+<p>其余分歧多是数值宽严、证据等级或措辞差异，不改变行动方向。<b>遇到冲突，一律按「基准 → 复查结果 → 门诊医生意见」的顺序取舍；模型分析不是诊疗依据。</b></p>
 
 <!-- ---------- 9 资料与免责 ---------- -->
 <h2 id="s9" class="sec">九、资料依据与说明</h2>
-<p>本页建议主要对照以下公开资料整理：《成人高脂血症食养指南（2023 年版）》《成人慢性肾脏病食养指南（2024 年版）》《成人高血压食养指南（2023 年版）》《体重管理指导原则（2024 年版）》《中国血脂管理指南（2023 年）》、KDIGO 2024 慢性肾脏病指南、《中国居民膳食指南（2022）》等，以及各模型列出的期刊文献。</p>
+<p>本页建议主要对照以下公开资料整理：《成人高脂血症食养指南（2023 年版）》《成人慢性肾脏病食养指南（2024 年版）》《成人高血压食养指南（2023 年版）》《体重管理指导原则（2024 年版）》《中国血脂管理指南（2023 年）》、KDIGO 2024 慢性肾脏病指南、《中国居民膳食指南（2022）》等，以及各模型列出的期刊文献。<b>正文数值以 OpenEvidence 修订版为基准。</b></p>
 
 <div class="callout soft">
   <b>关于本页：</b>内容只依据本次体检报告，并对照国家食养指南核过；与本报告不符的内容未纳入。各份分析的完整原文收在页面末尾「附录」，默认收起，供需要核对时查阅。
